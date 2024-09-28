@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viewport</title>
+  </head>
+  <style>
+    body {
+      min-height: 200vh;
+    }
+
+    main {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      display: grid;
+      place-content: center;
+      place-items: center;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      border: 1px solid black;
+      padding: 0.5rem;
+    }
+  </style>
+  <body>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Pixel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Width</th>
+            <td id="width"></td>
+          </tr>
+          <tr>
+            <th>Height</th>
+            <td id="height"></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <script>
+      const width = document.getElementById('width');
+      const height = document.getElementById('height');
+
+      function updateSize() {
+        width.textContent = window.innerWidth;
+        height.textContent = window.innerHeight;
+      }
+
+      updateSize();
+      window.addEventListener('resize', updateSize);
+    </script>
+  </body>
+</html>
